@@ -13,17 +13,46 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      publicPath: '/',
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
+        title: 'Jate'
+      }),
+      new WebpackPwaManifest({
+        filename: 'manifest.json',
+        name: 'Jate',
+        short_name: 'App',
+        description: 'Just another text editor',
+        background_color: '#ffffff',
+        theme_color: '#000000',
+        fingerprints: false,
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512], 
+            destination: 'assets/icons',
+          },
+        ],
       }),
     ],
     module: {
       rules: [
         {
-          test: /\.css$/,
+          test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
+            },
+          },
         },
       ],
     },
