@@ -1,13 +1,15 @@
 {
-  "name": "JATE",
+  "name": "jate",
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack --mode production",
     "start": "webpack --watch"
   },
-  "author": "2U",
+  "author": "Jonathan Haws",
   "license": "UNLICENSED",
-  "devDependencies": {
+  "dependencies": {
+    "code-mirror-themes": "^1.0.0",
+    "idb": "^6.1.2",
     "@babel/core": "^7.15.0",
     "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
@@ -22,9 +24,5 @@
     "webpack-dev-server": "^4.0.0",
     "webpack-pwa-manifest": "^4.3.0",
     "workbox-webpack-plugin": "^6.2.4"
-  },
-  "dependencies": {
-    "code-mirror-themes": "^1.0.0",
-    "idb": "^6.1.2"
   }
 }
