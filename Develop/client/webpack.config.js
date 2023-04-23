@@ -20,6 +20,10 @@ module.exports = () => {
         template: './index.html',
         title: 'Jate'
       }),
+      new InjectManifest({
+        swSrc: './src-sw.js', 
+        swDest: 'src-sw.js',
+      }),
       new WebpackPwaManifest({
         filename: 'manifest.json',
         name: 'Jate',
